@@ -1,0 +1,8 @@
+Here is the syntax for a .code file:
+
+<textblock>
+    this is a text block that can be used to explain stuff.
+</textblock>
+<codeblock>
+    This is a code block that will have text with code highlighting.
+</codeblock>

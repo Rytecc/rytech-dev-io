@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}"/>
+        <link rel="stylesheet" href="{{ url_for('static', filename='codestyle.css') }}"/>
+        <script type="text/javascript" src="{{ url_for('static', filename='main.js') }}" defer></script>
+
+    </head>
+    <body>
+        <main>
+            <nav>
+                {% if code_buttons %}
+                    {% for code in code_buttons %}
+                        <button name class="navbutton">{{ code }}</button>
+                    {% endfor %}
+                {% endif %}
+            </nav>
+            <div id="contentbody">
+            </div>
+        </main>
+    </body>
+</html>

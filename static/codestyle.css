@@ -1,0 +1,9 @@
+.language-csharp .blue {
+    font-family: 'Courier New', Courier, monospace;
+    color: deepskyblue;
+}
+
+.language-csharp .purple {
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(180, 0, 180);
+}

@@ -1,0 +1,39 @@
+<textblock>
+This interaction system makes use of <b>C# interfaces</b> to create a flexible interaction system.
+
+In a separate file or in the same file (whatever you prefer), create the IInteractable interface as shown below.
+Attach the Interactor class below onto the player or any AI/objects that have the ability to interact.
+</textblock>
+<codeblock>
+interface IInteractable {
+    public void Interact();
+}
+</codeblock>
+<codeblock>
+public class 3DFPSInteractor : Monobehaviour {
+    public Transform InteractorSource;
+    public float InteractRange;
+
+    void Update() {
+        if(Input.GetKeyDown(KeyCode.E)) {
+            Ray r = new Ray(InteractorSource.position, InteractorSource.forward);
+            if(Physics.Raycast(r, out RaycastHit hitInfo, InteractRange)) {
+                if(hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj)) {
+                    interactObj.Interact();
+                }
+            }
+        }
+    }
+}
+</codeblock>
+<textblock>
+Now on the recieving end, for any objects to be interacted with, attach the Interactee class.
+This utilizes <b>UnityEvents</b> to complete a flexible interaction system.
+</textblock>
+<codeblock>
+Public class 3DFPSInteractee : MonoBehaviour, IInteractable {
+    public void Interact() {
+        // Interact logic goes here.
+    }
+}
+</codeblock>
